@@ -4,7 +4,7 @@ CONTAINER=grafana_temp_build
 BUILD_DIR=/grafana_temp/src/github.com/grafana/grafana/
 
 # Initiating build in a centos container
-docker run --name ${CONTAINER} -dti docker.io/centos
+docker run --name ${CONTAINER} -p 3000:3000 -dti docker.io/centos
 docker cp grafana_build_centos.sh ${CONTAINER}:/grafana_build_centos.sh 
 docker exec -it ${CONTAINER} /grafana_build_centos.sh
 

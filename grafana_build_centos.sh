@@ -20,7 +20,7 @@ export GOPATH=`pwd`
 yum update -y
 yum install ruby-devel gcc gcc-c++ make rpm-build rubygems libtool sudo -y
 curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
-yum install nodejs initscripts fontconfig git autoconf autogen automake -y
+yum install nodejs initscripts fontconfig git autoconf autogen automake ca-certificates -y
 gem install --no-ri --no-rdoc fpm
 npm install -g yarn
 
@@ -51,8 +51,10 @@ go run build.go build
 npm install -g yarn
 yarn install --pure-lockfile
 nohup npm run watch &
+sleep 60
 
 mkdir -p assets/bin
 cp bin/grafana-server assets/bin
 cp bin/grafana-cli assets/bin
+strip assets/bin/*
 cp -r public vendor conf assets/
