@@ -16,4 +16,5 @@ Simply clone this repo and run ./build.sh script with the appropriate args:
 ./build.sh latest # builds grafana from the latest repo
 ./build.sh stable # builds grafana from the latest stable repo
 
-fnlasd
+
+test change
